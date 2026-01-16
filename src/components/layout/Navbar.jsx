@@ -10,9 +10,9 @@ export default function Navbar({ isLoggedIn, currentPath }) {
     navigate("/");
   };
 
-  // Only show this public navbar on Login and Signup pages
+  // Only show this public navbar on landing pages for GUESTS
   const publicPaths = ['/', '/signup', '/about', '/services', '/contact'];
-  if (!publicPaths.includes(currentPath)) return null;
+  if (!publicPaths.includes(currentPath) || isLoggedIn) return null;
 
   return (
     <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 sticky top-0 z-50">
