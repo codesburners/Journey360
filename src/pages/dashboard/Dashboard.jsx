@@ -5,7 +5,6 @@ import AITripCreator from '../../components/dashboard/AITripCreator';
 import SafetyWidget from '../../components/dashboard/SafetyWidget';
 import RecentTrips from '../../components/dashboard/RecentTrips';
 import TrendingSuggestions from '../../components/dashboard/TrendingSuggestions';
-import AssistantWidget from '../../components/dashboard/AssistantWidget';
 
 const Dashboard = () => {
   return (
@@ -28,10 +27,8 @@ const Dashboard = () => {
             <TrendingSuggestions />
           </div>
 
+
         </div>
-
-        <AssistantWidget />
-
       </div>
     </AppLayout>
   );

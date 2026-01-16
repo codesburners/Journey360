@@ -11,18 +11,11 @@ const DashboardHeader = () => {
     return (
         <header className="flex justify-between items-center mb-8">
             <div>
-                <h1 className="text-3xl font-bold text-gray-900">Where to next, {nameDisplay}?</h1>
-                <p className="text-gray-500 mt-1">Plan your next adventure with AI-powered precision and safety.</p>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Where to next, {nameDisplay}?</h1>
+                <p className="text-gray-500 dark:text-gray-400 mt-1">Plan your next adventure with AI-powered precision and safety.</p>
             </div>
 
-            <div className="flex items-center gap-4">
-                <button className="p-2 text-gray-400 hover:text-gray-600 bg-white rounded-full shadow-sm border border-gray-100 transition-colors">
-                    <Bell size={20} />
-                </button>
-                <button className="p-1 text-gray-400 hover:text-gray-600 bg-white rounded-full shadow-sm border border-gray-100 transition-colors">
-                    <img src={avatarUrl} alt="Profile" className="w-8 h-8 rounded-full" />
-                </button>
-            </div>
+
         </header>
     );
 };

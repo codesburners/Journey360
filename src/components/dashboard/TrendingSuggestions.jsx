@@ -9,8 +9,9 @@ const TrendingSuggestions = () => {
             {/* Santorini Card */}
             <div className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer shadow-sm">
                 {/* Background Image */}
+                {/* Background Image */}
                 <img
-                    src="https://images.unsplash.com/photo-1613395877344-13d4c79e4284?auto=format&fit=crop&q=80&w=600&h=800"
+                    src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=600&auto=format&fit=crop"
                     alt="Santorini, Greece"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

@@ -10,10 +10,6 @@ const Assistant = () => {
                 {/* Page Header */}
                 <div className="px-8 py-6 border-b border-gray-100 bg-white sticky top-0 z-10">
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
-                        <span>Home</span>
-                        <span>/</span>
-                        <span>Tokyo Trip</span>
-                        <span>/</span>
                         <span className="text-gray-900 font-semibold">AI Travel Assistant</span>
                     </div>
                 </div>
@@ -28,7 +24,9 @@ const Assistant = () => {
                         </div>
 
                         {/* Right: Context Panel (Fixed width on desktop, stacked on mobile) */}
-                        <ContextPanel />
+                        <div className="h-full overflow-y-auto overflow-x-hidden pr-2">
+                            <ContextPanel />
+                        </div>
 
                     </div>
                 </div>

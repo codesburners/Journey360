@@ -10,14 +10,18 @@ export default function Navbar({ isLoggedIn, currentPath }) {
     navigate("/");
   };
 
-  if (currentPath.startsWith('/dashboard') || currentPath.startsWith('/assistant')) return null;
+  // Only show this public navbar on Login and Signup pages
+  const publicPaths = ['/', '/signup', '/about', '/services', '/contact'];
+  if (!publicPaths.includes(currentPath)) return null;
 
   return (
-    <header className="w-full px-10 py-5 flex items-center justify-between">
+    <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 sticky top-0 z-50">
       {/* Logo */}
       <div className="flex items-center gap-2 text-xl font-semibold">
-        <div className="w-6 h-6 bg-blue-600 rotate-45 rounded-sm" />
-        Journey360
+        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center rotate-45">
+          <div className="w-4 h-4 bg-white rotate-45"></div>
+        </div>
+        <span className="text-xl font-bold text-gray-900 tracking-tight">Journey360</span>
       </div>
 
       {/* Right side */}
@@ -27,31 +31,25 @@ export default function Navbar({ isLoggedIn, currentPath }) {
           <span className="hover:text-blue-600 cursor-pointer">Safety</span>
           <span className="hover:text-blue-600 cursor-pointer">Pricing</span>
           <span className="hover:text-blue-600 cursor-pointer">Help</span>
+          <Link to="/about" className="hover:text-blue-600 cursor-pointer">About</Link>
         </nav>
 
         {/* AUTH BUTTON LOGIC */}
-        {isLoggedIn ? (
-          <button
-            onClick={handleLogout}
-            className="text-sm font-medium text-red-600 hover:underline"
-          >
-            Logout
-          </button>
-        ) : currentPath === "/signup" ? (
+        {(currentPath === "/signup" || currentPath === "/about" || currentPath === "/services" || currentPath === "/contact") && !isLoggedIn ? (
           <Link
             to="/"
-            className="text-blue-600 font-medium hover:underline"
+            className="text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors"
           >
             Login
           </Link>
-        ) : (
+        ) : (currentPath === "/" || currentPath === "/about" || currentPath === "/services" || currentPath === "/contact") && isLoggedIn ? (
           <Link
-            to="/signup"
-            className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
+            to="/dashboard"
+            className="text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors"
           >
-            Create account
+            Go to Dashboard
           </Link>
-        )}
+        ) : null}
       </div>
     </header>
   );

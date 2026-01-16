@@ -13,6 +13,12 @@ import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Assistant from "./pages/assistant/Assistant";
+import About from "./pages/dummy/About";
+import Services from "./pages/dummy/Services";
+import Contact from "./pages/dummy/Contact";
+import Profile from "./pages/profile/Profile";
+import ItineraryPage from "./pages/Itinerary/ItineraryPage";
+import SafetyPage from "./pages/Safety/SafetyPage";
 import Navbar from "./components/layout/Navbar";
 
 export default function App() {
@@ -27,12 +33,13 @@ export default function App() {
       setUser(firebaseUser);
       setLoading(false);
 
-      // ✅ Allow / and /signup
+      // ✅ Allow / and /signup and /about
       // ❌ Block everything else if not logged in
       if (
         !firebaseUser &&
         location.pathname !== "/" &&
-        location.pathname !== "/signup"
+        location.pathname !== "/signup" &&
+        location.pathname !== "/about"
       ) {
         navigate("/", { replace: true });
       }
@@ -59,6 +66,36 @@ export default function App() {
         <Route
           path="/assistant"
           element={user ? <Assistant /> : <Navigate to="/" replace />}
+        />
+
+        <Route
+          path="/about"
+          element={<About />}
+        />
+
+        <Route
+          path="/services"
+          element={user ? <Services /> : <Navigate to="/" replace />}
+        />
+
+        <Route
+          path="/contact"
+          element={user ? <Contact /> : <Navigate to="/" replace />}
+        />
+
+        <Route
+          path="/profile"
+          element={user ? <Profile /> : <Navigate to="/" replace />}
+        />
+
+        <Route
+          path="/itinerary"
+          element={user ? <ItineraryPage /> : <Navigate to="/" replace />}
+        />
+
+        <Route
+          path="/safety"
+          element={user ? <SafetyPage /> : <Navigate to="/" replace />}
         />
 
         <Route path="*" element={<Navigate to="/" replace />} />

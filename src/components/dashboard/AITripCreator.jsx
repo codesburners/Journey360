@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { MapPin, Calendar, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AITripCreator = () => {
+    const navigate = useNavigate();
     const [budget, setBudget] = useState(50);
     const [pace, setPace] = useState('Balanced');
 
@@ -102,7 +104,10 @@ const AITripCreator = () => {
                 </div>
 
                 {/* Generate Button */}
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 rounded-xl font-semibold shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                <button
+                    onClick={() => navigate('/itinerary')}
+                    className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white py-3.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+                >
                     <Sparkles size={18} />
                     Generate AI Itinerary
                 </button>
